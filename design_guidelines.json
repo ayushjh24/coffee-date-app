@@ -1,0 +1,142 @@
+{
+  "theme_name": "Premium Cinematic Café Romance",
+  "design_philosophy": "Awwwards-level interactive storytelling. Merges luxury cinematic aesthetics with emotional intimacy. Relies heavily on fluid motion, glassmorphism, depth, and curated typography. No generic centered layouts without tension.",
+  "colors": {
+    "light": {
+      "background": "#FDFBF7",
+      "foreground": "#2C1E16",
+      "primary": "#C89B3C",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#EFE6E1",
+      "secondary_foreground": "#2C1E16",
+      "accent": "#E6D0CE",
+      "card_glass": "rgba(255, 255, 255, 0.7)",
+      "border": "rgba(44, 30, 22, 0.1)",
+      "overlay": "rgba(253, 251, 247, 0.4)"
+    },
+    "dark": {
+      "background": "#0D0B0A",
+      "foreground": "#FDFBF7",
+      "primary": "#D4AF37",
+      "primary_foreground": "#0D0B0A",
+      "secondary": "#2A1F1B",
+      "secondary_foreground": "#FDFBF7",
+      "accent": "#9C7A87",
+      "card_glass": "rgba(20, 15, 13, 0.6)",
+      "border": "rgba(253, 251, 247, 0.1)",
+      "overlay": "rgba(13, 11, 10, 0.5)"
+    }
+  },
+  "typography": {
+    "primary_font": "Poppins, sans-serif",
+    "signature_font": "Caveat, cursive",
+    "rules": {
+      "h1": "text-5xl md:text-7xl font-light tracking-tighter leading-none",
+      "h2": "text-3xl md:text-5xl font-semibold tracking-tight",
+      "body": "text-base md:text-lg font-normal leading-relaxed tracking-wide",
+      "receipt": "font-mono text-sm tracking-widest",
+      "signature": "font-['Caveat'] text-3xl md:text-4xl text-primary"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]",
+    "shadows": "shadow-2xl shadow-black/5 dark:shadow-black/40",
+    "noise_texture": "A subtle fixed full-screen SVG grain/noise overlay with opacity-5 pointer-events-none to give a cinematic film feel.",
+    "particles": "Floating coffee beans and tiny hearts. Use Framer Motion or tsParticles with absolute positioning, slow drift animations (y-axis negative translation with slight x-axis sine wave)."
+  },
+  "layouts": {
+    "overall": "Multi-step wizard structure. Wrap the main content in AnimatePresence. Hide overflow on the main container to prevent scroll jumping.",
+    "hero_step": "Full-viewport height. Centered but asymmetrical text arrangement. Huge kinetic typography.",
+    "question_step": "Centered glassmorphism bento card. Generous padding (p-8 md:p-16).",
+    "menu_step": "Bento Grid layout for menu items (grid-cols-2 md:grid-cols-4 gap-4). Tight gaps, full height cards.",
+    "receipt_step": "Narrow central column. Classic receipt shape (zigzag bottom edge using CSS clip-path or SVG)."
+  },
+  "motion_interactions": {
+    "page_transitions": {
+      "initial": { "opacity": 0, "y": 40, "filter": "blur(10px)" },
+      "animate": { "opacity": 1, "y": 0, "filter": "blur(0px)" },
+      "exit": { "opacity": 0, "y": -40, "filter": "blur(10px)" },
+      "transition": { "duration": 0.8, "ease": [0.16, 1, 0.3, 1] }
+    },
+    "text_reveal": "Masked line-by-line reveal. Wrap lines in overflow-hidden divs, animate y from '100%' to '0%'.",
+    "dodging_button": "Framer Motion onHoverStart. Calculate random x/y within a bounds radius (e.g., Math.random() * 200 - 100) and set state to animate the 'Let Me Think' button away from the cursor.",
+    "micro_interactions": "Hover states on menu items should scale to 0.98, border color changes to primary, and a subtle inner glow appears."
+  },
+  "components_to_build": [
+    {
+      "name": "CinematicHero",
+      "description": "Initial screen. Animated background, floating hearts, 'Hi 😊' text reveal, 'Open It ❤️' entry button."
+    },
+    {
+      "name": "QuestionCard",
+      "description": "Glassmorphism card asking the date question. Contains the Yes and dodging Let Me Think button."
+    },
+    {
+      "name": "DateTimePicker",
+      "description": "Use Shadcn Calendar styled organically (no blue/Vercel styling). Custom time grid with clock icon."
+    },
+    {
+      "name": "CoffeeMenu",
+      "description": "Interactive multi-select bento grid for Cappuccino, Latte, Cold Coffee, Hot Chocolate, Cheesecake, Croissant, Cookies, Pizza."
+    },
+    {
+      "name": "ReceiptBill",
+      "description": "Summary step styled exactly like a café bill. 'Coffee ₹199, Dessert ₹149, Memories Priceless, Your Smile FREE'."
+    },
+    {
+      "name": "CelebrationOverlay",
+      "description": "Confetti (react-confetti), floating sparkles, typewriter text for the final 'Yay!' message."
+    },
+    {
+      "name": "AudioController",
+      "description": "Fixed bottom-right floating glass button to toggle BGM play/pause with wave animation."
+    },
+    {
+      "name": "ThemeToggle",
+      "description": "Fixed top-right elegant moon/sun icon toggle."
+    }
+  ],
+  "media": {
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1612718114903-33f5c256c2d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBsYXR0ZSUyMGFydCUyMG1vb2R5fGVufDB8fHx8MTc4MzM5MzY0Mnww&ixlib=rb-4.1.0&q=85",
+        "category": "background_ambient",
+        "description": "Moody latte art. Use with heavy blur and overlay for dark mode background."
+      },
+      {
+        "url": "https://images.pexels.com/photos/34032353/pexels-photo-34032353.jpeg",
+        "category": "background_light",
+        "description": "Elegant bright cafe interior. Use with soft white overlay for light mode."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1762539401839-b8378f395cc1",
+        "category": "particles_reference",
+        "description": "Macro coffee beans. Extract bean shapes or use as texture mask."
+      }
+    ],
+    "audio": {
+      "bgm_url": "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3",
+      "description": "Soft royalty-free lofi/piano track."
+    }
+  },
+  "accessibility_and_testing": {
+    "rules": [
+      "All interactive elements must have semantic HTML tags.",
+      "Add aria-label to the audio and theme toggles.",
+      "Ensure dodging button is accessible via keyboard (tab navigation should technically bypass or handle it playfully).",
+      "MUST include data-testid attributes on: 'open-invitation-btn', 'yes-date-btn', 'dodge-btn', 'date-picker', 'time-picker', 'menu-item-[name]', 'confirm-date-btn'."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "You are building a React.js application. Use .js/.jsx extensions, not .tsx.",
+    "Do not use generic Shadcn styling. Override Shadcn CSS variables in globals.css to match the Deep Mocha and Warm Cream theme exactly.",
+    "Import Poppins and Caveat from Google Fonts in index.html.",
+    "Use Framer Motion extensively for the wizard step transitions (AnimatePresence).",
+    "Build a custom 'Sparkle Cursor' component that tracks mouse position and leaves a trail of tiny Framer Motion divs.",
+    "The 'Let Me Think' button must use Framer Motion's onHoverStart to change its x and y coordinates dynamically, making it impossible to click.",
+    "For the receipt, use standard CSS clip-path or a styled SVG to create the jagged bottom edge of a real receipt. Apply a slight rotation (e.g., -2deg) for a casual, cinematic feel.",
+    "Make sure the Loading state features a coffee-cup-filling animation (can be achieved with CSS height transitions inside a cup SVG).",
+    "UNIVERSAL GUIDELINE: Avoid central symmetry everywhere. If the card is centered, make its internal contents asymmetric. Embrace whitespace (p-12, p-16).",
+    "Install necessary packages: framer-motion, lucide-react, react-confetti, clsx, tailwind-merge."
+  ]
+}
